@@ -1,0 +1,57 @@
+package com.priyo.stack;
+
+public class StackByArray {
+	
+	public int top;
+	public int capacity;
+	public int [] stack;
+	
+	public StackByArray() {
+		//super();
+		this.top = -1;
+		this.capacity = 10;
+		stack=new int[capacity];
+	}
+	
+	public boolean isEmpty(){
+		return top==-1;
+	}
+	
+	public boolean isFull(){
+		return top==capacity-1;
+	}
+	
+	public int push(int data){
+		if(isEmpty()){
+			System.out.println("Empty Stack");
+		}
+		return stack[++top]=data;
+	}
+	
+	public int pop(){
+		if(isFull()){
+			System.out.println("Full Stack");
+		}
+		return stack[top--];
+		
+	}
+	
+	public int peek(){
+		return stack[top];
+	}
+	
+	public static void main(String[] args) {
+		StackByArray sba=new StackByArray();
+		
+		sba.push(10);
+		sba.push(23);
+		sba.push(34);
+		sba.push(100);
+		
+		System.out.println(sba.isEmpty());
+		System.out.println("Capacity :"+sba.capacity);
+		System.out.println("Top element :"+sba.top);
+		System.out.println(sba.pop());
+		System.out.println(sba.peek());		
+	}
+}
